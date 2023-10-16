@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightClickQuickFill</title>
+    <style>
+        body {
+            padding: 15px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            width: 500px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+        }
+
+        label {
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[readonly] {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        button:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid #4CAF50;
+        }
+
+        #backupButton {
+            background-color: #555;
+        }
+
+        #backupButton:hover {
+            border: 1px solid #555;
+        }
+        .email-inputs {
+            display: flex;
+            align-items: center;
+        }
+
+        .email-part {
+            width: calc(50% - 12px);
+            padding: 10px;
+
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .email-inputs span {
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .phone-input {
+            display: flex;
+            align-items: center;
+        }
+
+        .phone-part {
+            width: calc(50% - 12px);
+            padding: 10px;
+
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .phone-input span {
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>RightClickQuickFill</h1>
+<label for="address1">住所１:</label>
+<input type="text" id="address1" name="address1" placeholder="都道府県市区町村。(例: 東京都中央区日本橋)">
+<br>
+<label for="address2">住所２:</label>
+<input type="text" id="address2" name="address2" placeholder="それ以降番地まで。(例：1-1-1)">
+<br>
+<label for="address3">住所３:</label>
+<input type="text" id="address3" name="address3" placeholder="建物名、部屋番号。(例: サンプルビルディング101)">
+<br>
+<label for="full-address">住所:</label>
+<input type="text" id="full-address" name="full-address" placeholder="自動作成：東京都中央区日本橋1-1-1 サンプルビル101号室" readonly>
+<br>
+<label for="email">Eメール:</label>
+<div class="email-inputs" id="email">
+    <input type="text" id="emailUser" placeholder="username" class="email-part">
+    <span>@</span>
+    <input type="text" id="emailDomain" placeholder="domain" class="email-part">
+</div>
+<label for="phone">電話番号:</label>
+<div class="phone-input" id="phone">
+    <input type="tel" id="phone1" name="phone1" class="phone-part">
+    <span>-</span>
+    <input type="tel" id="phone2" name="phone2" class="phone-part">
+    <span>-</span>
+    <input type="tel" id="phone3" name="phone3" class="phone-part">
+</div>
+<button id="saveButton">保存</button>
+<button id="backupButton">バックエンド</button>
+<button id="restoreButton">データ復元</button>
+<script src="popup.js"></script>
+</body>
+</html>
